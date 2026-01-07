@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compusell Informática | Tecnologia de Alta Performance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oxanium:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                    tech: ['Oxanium', 'sans-serif'],
+                },
+                extend: {
+                    colors: {
+                        'deep-blue': '#050a14',   /* Fundo Ultra Escuro */
+                        'neon-blue': '#00f0ff',   /* Ciano Elétrico */
+                        'neon-green': '#00ff9d',  /* Verde Matrix Vibes */
+                        'surface': '#0f172a',     /* Cor dos Cards */
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Efeitos Surpreendentes de CSS */
+        body { background-size: 40px 40px; }
+        
+        /* Texto com Brilho Neon */
+        .text-glow { text-shadow: 0 0 15px rgba(0, 240, 255, 0.6); }
+        
+        /* Transição dos Slides */
+        .slide {
+            position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease-in-out;
+            z-index: 0;
+        }
+        .slide.active { opacity: 1; z-index: 10; }
+        .slide img { transition: transform 6s ease; transform: scale(1); }
+        .slide.active img { transform: scale(1.1); } /* Zoom lento na imagem ativa */
+
+        /* Card Cyberpunk com borda animada */
+        .cyber-card {
+            position: relative; overflow: hidden; z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        .cyber-card::before {
+            content: ''; position: absolute; inset: -2px; z-index: -1;
+            background: linear-gradient(45deg, #00f0ff, #00ff9d, #0000ff);
+            background-size: 400% 400%; animation: gradientBorder 3s ease infinite;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .cyber-card:hover::before { opacity: 1; }
+        .cyber-card:hover { transform: translateY(-5px); }
+        .cyber-card-inner { background-color: #0f172a; height: 100%; }
+
+        @keyframes gradientBorder { 0% {background-position: 0% 50%} 50% {background-position: 100% 50%} 100% {background-position: 0% 50%} }
+    </style>
+</head>
+<body class="bg-deep-blue bg-grid-pattern text-gray-200 font-sans antialiased selection:bg-neon-blue selection:text-black">
+
+    <nav class="fixed w-full z-50 bg-deep-blue/90 backdrop-blur-lg border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-2 group cursor-pointer">
+                    <i class="fas fa-microchip text-3xl text-neon-blue group-hover:text-neon-green transition-colors"></i>
+                    <span class="text-2xl font-tech font-black text-white tracking-wider uppercase">
+                        Compu<span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-green">Sell</span>
+                    </span>
+                </div>
+                <div class="hidden md:flex space-x-10 font-tech text-sm font-bold uppercase tracking-widest">
+                    <a href="#home" class="hover:text-neon-blue transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-neon-blue hover:after:w-full after:transition-all">Início</a>
+                    <a href="#servicos" class="hover:text-neon-blue transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-neon-blue hover:after:w-full after:transition-all">Serviços</a>
+                    <a href="#pcgamer" class="hover:text-neon-green transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-neon-green hover:after:w-full after:transition-all">PC Gamer</a>
+                    <a href="#empresas" class="hover:text-neon-blue transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-neon-blue hover:after:w-full after:transition-all">Empresas</a>
+                </div>
+                <a href="https://wa.me/55SEUNUMERO" class="hidden md:inline-flex font-tech items-center gap-2 bg-neon-blue/10 text-neon-blue border border-neon-blue/50 px-6 py-2 rounded-sm font-bold hover:bg-neon-blue hover:text-black transition-all uppercase tracking-wider text-sm group">
+                    <i class="fab fa-whatsapp text-lg group-hover:animate-bounce"></i> Falar com Técnico
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+        
+        <div class="slide active">
+            <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-r from-deep-blue via-deep-blue/80 to-transparent"></div>
+            <div class="relative z-20 max-w-7xl mx-auto px-4 h-full flex items-center">
+                <div class="max-w-3xl">
+                    <span class="inline-block text-neon-blue font-bold uppercase tracking-widest mb-4 font-tech animate-pulse">Assistência Técnica Especializada</span>
+                    <h1 class="text-5xl md:text-8xl font-tech font-black text-white mb-8 leading-none uppercase">
+                        Seu equipamento <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-white text-glow">Novo de Novo.</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-12 max-w-2xl leading-relaxed">
+                        Lentidão? Travamentos? Resolvemos problemas de hardware e software em notebooks e desktops com rapidez e garantia.
+                    </p>
+                    <a href="https://wa.me/55SEUNUMERO" class="bg-neon-blue text-black font-tech font-bold uppercase px-10 py-5 rounded-sm hover:bg-white transition-all inline-flex items-center gap-3">
+                        Agendar Reparo Agora <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1624705002806-5d72df19c3ad?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-50">
+            <div class="absolute inset-0 bg-gradient-to-r from-deep-blue via-deep-blue/60 to-transparent"></div>
+            <div class="relative z-20 max-w-7xl mx-auto px-4 h-full flex items-center justify-end text-right">
+                <div class="max-w-3xl">
+                    <span class="inline-block text-neon-green font-bold uppercase tracking-widest mb-4 font-tech animate-pulse">Alta Performance & FPS</span>
+                    <h1 class="text-5xl md:text-8xl font-tech font-black text-white mb-8 leading-none uppercase">
+                        Domine o Jogo com a <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-l from-neon-green to-white text-glow">Máquina Perfeita.</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-12 max-w-2xl leading-relaxed ml-auto">
+                        Montagem profissional de PC Gamer. Cable management impecável, refrigeração otimizada e a configuração ideal para o seu orçamento.
+                    </p>
+                    <a href="#pcgamer" class="bg-neon-green text-black font-tech font-bold uppercase px-10 py-5 rounded-sm hover:bg-white transition-all inline-flex items-center gap-3">
+                        Montar Meu Setup <i class="fas fa-gamepad"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-t from-deep-blue via-deep-blue/80 to-transparent"></div>
+            <div class="relative z-20 max-w-7xl mx-auto px-4 h-full flex items-center justify-center text-center">
+                <div class="max-w-4xl">
+                    <span class="inline-block text-white font-bold uppercase tracking-widest mb-4 font-tech">Soluções Corporativas</span>
+                    <h1 class="text-5xl md:text-8xl font-tech font-black text-white mb-8 leading-none uppercase">
+                        Infraestrutura de <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-green">Rede Estável.</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                        Cabeamento estruturado, organização de racks e configuração de Wi-Fi corporativo para que sua empresa nunca pare.
+                    </p>
+                    <a href="#empresas" class="border-2 border-white text-white font-tech font-bold uppercase px-10 py-5 rounded-sm hover:bg-white hover:text-black transition-all inline-flex items-center gap-3">
+                        Soluções para Empresas <i class="fas fa-network-wired"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex gap-4 z-30">
+            <button onclick="manualSlide(0)" class="slider-dot w-16 h-2 bg-white rounded-full transition-all hover:bg-neon-blue"></button>
+            <button onclick="manualSlide(1)" class="slider-dot w-16 h-2 bg-white/30 rounded-full transition-all hover:bg-neon-green"></button>
+            <button onclick="manualSlide(2)" class="slider-dot w-16 h-2 bg-white/30 rounded-full transition-all hover:bg-neon-blue"></button>
+        </div>
+    </section>
+
+    <section class="py-20 bg-surface relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-neon-blue via-neon-green to-neon-blue"></div>
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-tech font-black text-white uppercase mb-4">Por que a <span class="text-neon-blue">Compusell?</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Mais do que consertar, nós otimizamos sua experiência com tecnologia.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center group">
+                    <div class="w-24 h-24 bg-deep-blue rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-neon-blue/30 group-hover:border-neon-blue transition-all group-hover:shadow-[0_0_30px_rgba(0,240,255,0.3)]">
+                        <i class="fas fa-tachometer-alt text-5xl text-neon-blue"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 font-tech uppercase">Agilidade no Reparo</h3>
+                    <p class="text-gray-400 leading-relaxed">Sabemos que você não pode ficar parado. Diagnóstico rápido e execução eficiente.</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-24 h-24 bg-deep-blue rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-neon-green/30 group-hover:border-neon-green transition-all group-hover:shadow-[0_0_30px_rgba(0,255,157,0.3)]">
+                        <i class="fas fa-shield-alt text-5xl text-neon-green"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 font-tech uppercase">Garantia e Confiança</h3>
+                    <p class="text-gray-400 leading-relaxed">Serviços com garantia e transparência total sobre o que está sendo feito no seu equipamento.</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-24 h-24 bg-deep-blue rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-purple-500/30 group-hover:border-purple-500 transition-all group-hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
+                        <i class="fas fa-brain text-5xl text-purple-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 font-tech uppercase">Expertise Técnica</h3>
+                    <p class="text-gray-400 leading-relaxed">Anos de experiência em hardware e infraestrutura de redes por Fernando Conquista.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="py-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-4xl font-tech font-black text-white uppercase">Nossos Serviços</h2>
+                    <div class="w-32 h-1 bg-gradient-to-r from-neon-blue to-neon-green mt-2"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="cyber-card rounded-xl group">
+                    <div class="cyber-card-inner p-8">
+                        <i class="fas fa-laptop text-4xl text-neon-blue mb-6"></i>
+                        <h3 class="text-2xl font-tech font-bold text-white mb-4 uppercase group-hover:text-neon-blue transition-colors">Notebooks & Laptops</h3>
+                        <ul class="space-y-3 text-gray-400 mb-8">
+                            <li><i class="fas fa-check text-neon-blue mr-2"></i> Troca de Tela e Teclado</li>
+                            <li><i class="fas fa-check text-neon-blue mr-2"></i> Reparo de Carcaça (Dobradiças)</li>
+                            <li><i class="fas fa-check text-neon-blue mr-2"></i> Upgrade de SSD (10x mais rápido)</li>
+                            <li><i class="fas fa-check text-neon-blue mr-2"></i> Limpeza e Pasta Térmica</li>
+                        </ul>
+                        <a href="https://wa.me/55SEUNUMERO" class="text-neon-blue font-bold uppercase tracking-wider text-sm hover:underline">Solicitar Orçamento -></a>
+                    </div>
+                </div>
+
+                 <div class="cyber-card rounded-xl group">
+                    <div class="cyber-card-inner p-8">
+                        <i class="fas fa-desktop text-4xl text-neon-green mb-6"></i>
+                        <h3 class="text-2xl font-tech font-bold text-white mb-4 uppercase group-hover:text-neon-green transition-colors">Desktops & Workstations</h3>
+                        <ul class="space-y-3 text-gray-400 mb-8">
+                            <li><i class="fas fa-check text-neon-green mr-2"></i> Montagem e Configuração</li>
+                            <li><i class="fas fa-check text-neon-green mr-2"></i> Diagnóstico de Peças Queimadas</li>
+                            <li><i class="fas fa-check text-neon-green mr-2"></i> Formatação e Backup</li>
+                            <li><i class="fas fa-check text-neon-green mr-2"></i> Remoção de Vírus</li>
+                        </ul>
+                        <a href="https://wa.me/55SEUNUMERO" class="text-neon-green font-bold uppercase tracking-wider text-sm hover:underline">Solicitar Orçamento -></a>
+                    </div>
+                </div>
+
+                 <div id="empresas" class="cyber-card rounded-xl group lg:col-span-1 col-span-full">
+                    <div class="cyber-card-inner p-8 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 -mt-4 -mr-4 text-deep-blue/40 z-0 pointer-events-none">
+                            <i class="fas fa-server text-9xl"></i>
+                        </div>
+                        <div class="relative z-10">
+                            <i class="fas fa-network-wired text-4xl text-white mb-6"></i>
+                            <h3 class="text-2xl font-tech font-bold text-white mb-4 uppercase group-hover:text-neon-blue transition-colors">Soluções Empresariais</h3>
+                            <ul class="space-y-3 text-gray-400 mb-8">
+                                <li><i class="fas fa-check text-white mr-2"></i> Cabeamento Estruturado (Cat6)</li>
+                                <li><i class="fas fa-check text-white mr-2"></i> Organização de Racks de TI</li>
+                                <li><i class="fas fa-check text-white mr-2"></i> Configuração de Redes Wi-Fi</li>
+                                <li><i class="fas fa-check text-white mr-2"></i> Contratos de Manutenção</li>
+                            </ul>
+                            <a href="https://wa.me/55SEUNUMERO" class="bg-white text-deep-blue px-6 py-3 rounded-sm font-bold uppercase tracking-wider text-sm hover:bg-neon-blue hover:text-black transition-all inline-block">Falar sobre minha empresa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pcgamer" class="py-24 relative overflow-hidden border-y border-neon-green/30 bg-black">
+        <div class="absolute inset-0 opacity-50 bg-[url('https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?q=80&w=2664&auto=format&fit=crop')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-deep-blue via-deep-blue/50 to-transparent"></div>
+        
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30 animate-pulse"></div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10 flex flex-col lg:flex-row items-center gap-16">
+            <div class="lg:w-1/2">
+                <span class="inline-block bg-neon-green text-black text-xs font-bold uppercase tracking-widest px-3 py-1 mb-6 animate-bounce">Especialidade Compusell</span>
+                <h2 class="text-5xl md:text-7xl font-tech font-black text-white mb-8 uppercase leading-none text-glow">
+                    O Setup dos <br> Seus Sonhos.
+                </h2>
+                <p class="text-xl text-gray-300 mb-10 leading-relaxed">
+                    Não é só montar peças. É arte. Criamos máquinas de alta performance com cable management de nível entusiasta, fluxo de ar perfeito e estética incrível.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-6 mb-12">
+                    <div class="bg-deep-blue/80 p-4 border-l-2 border-neon-green">
+                        <h4 class="font-tech font-bold text-white uppercase mb-1">Cable Management</h4>
+                        <p class="text-sm text-gray-400">Visual limpo, sem fios aparentes.</p>
+                    </div>
+                     <div class="bg-deep-blue/80 p-4 border-l-2 border-neon-blue">
+                        <h4 class="font-tech font-bold text-white uppercase mb-1">Airflow Otimizado</h4>
+                        <p class="text-sm text-gray-400">Temperaturas baixas, mais FPS.</p>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/55SEUNUMERO" class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm p-0.5 font-bold text-white hover:text-black transition-all">
+                    <span class="absolute inset-0 bg-gradient-to-r from-neon-blue to-neon-green transition-all group-hover:via-white group-hover:to-neon-blue"></span>
+                    <span class="relative flex items-center gap-3 rounded-sm bg-deep-blue px-10 py-5 transition-all group-hover:bg-transparent uppercase font-tech tracking-wider text-lg">
+                        Solicitar Cotação Gamer <i class="fas fa-rocket group-hover:animate-ping"></i>
+                    </span>
+                </a>
+            </div>
+            <div class="lg:w-1/2 relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-neon-green to-neon-blue blur-3xl opacity-30 animate-pulse"></div>
+                <img src="https://images.unsplash.com/photo-1587304568247-105299611050?q=80&w=2670&auto=format&fit=crop" class="relative z-10 rounded-xl shadow-2xl border-2 border-white/10 transform hover:scale-105 hover:rotate-1 transition-all duration-500">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-surface">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-tech font-black text-white uppercase mb-4">Dúvidas Frequentes</h2>
+                <p class="text-gray-400">Respostas rápidas para as perguntas mais comuns dos nossos clientes.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-deep-blue p-6 rounded-lg border border-gray-800">
+                    <h3 class="font-bold text-white text-lg mb-2 flex items-center"><i class="far fa-question-circle text-neon-blue mr-3"></i> Vocês fazem atendimento em domicílio?</h3>
+                    <p class="text-gray-400">Sim! Realizamos visitas técnicas para empresas e residências, dependendo do tipo de serviço e da localidade. Entre em contato para verificar a disponibilidade.</p>
+                </div>
+                <div class="bg-deep-blue p-6 rounded-lg border border-gray-800">
+                    <h3 class="font-bold text-white text-lg mb-2 flex items-center"><i class="far fa-question-circle text-neon-green mr-3"></i> O serviço tem garantia?</h3>
+                    <p class="text-gray-400">Com certeza. Todos os nossos serviços de manutenção e peças vendidas possuem garantia legal. Prezamos pela transparência e segurança do cliente.</p>
+                </div>
+                <div class="bg-deep-blue p-6 rounded-lg border border-gray-800">
+                    <h3 class="font-bold text-white text-lg mb-2 flex items-center"><i class="far fa-question-circle text-purple-500 mr-3"></i> Eu preciso comprar as peças ou vocês fornecem?</h3>
+                    <p class="text-gray-400">Trabalhamos das duas formas. Podemos fornecer as peças necessárias ou realizar a montagem/troca com peças que você já adquiriu, desde que sejam compatíveis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-deep-blue pt-16 pb-8 border-t border-gray-800/50 relative overflow-hidden">
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-neon-blue via-neon-green to-neon-blue"></div>
+        <div class="max-w-7xl mx-auto px-4 text-center">
+             <div class="flex items-center justify-center gap-2 mb-6 group cursor-pointer animate-pulse">
+                <i class="fas fa-microchip text-3xl text-neon-blue"></i>
+                <span class="text-3xl font-tech font-black text-white tracking-wider uppercase">
+                    Compu<span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-green">Sell</span>
+                </span>
+            </div>
+            <p class="text-gray-400 mb-8 max-w-md mx-auto leading-relaxed font-medium">
+                A excelência técnica que seu equipamento merece. Liderada por Fernando Conquista.
+            </p>
+            
+            <div class="flex justify-center gap-8 mb-12">
+                <a href="https://wa.me/55SEUNUMERO" class="flex flex-col items-center group">
+                    <div class="w-14 h-14 rounded-full bg-surface flex items-center justify-center text-neon-green group-hover:bg-neon-green group-hover:text-deep-blue transition-all border border-neon-green/30 mb-2">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                    </div>
+                    <span class="text-xs text-gray-500 group-hover:text-neon-green transition-colors font-tech uppercase">WhatsApp</span>
+                </a>
+                <a href="#" class="flex flex-col items-center group">
+                    <div class="w-14 h-14 rounded-full bg-surface flex items-center justify-center text-neon-blue group-hover:bg-neon-blue group-hover:text-deep-blue transition-all border border-neon-blue/30 mb-2">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </div>
+                     <span class="text-xs text-gray-500 group-hover:text-neon-blue transition-colors font-tech uppercase">Instagram</span>
+                </a>
+                 <a href="mailto:contato@compusell.com" class="flex flex-col items-center group">
+                    <div class="w-14 h-14 rounded-full bg-surface flex items-center justify-center text-white group-hover:bg-white group-hover:text-deep-blue transition-all border border-white/30 mb-2">
+                        <i class="far fa-envelope text-2xl"></i>
+                    </div>
+                     <span class="text-xs text-gray-500 group-hover:text-white transition-colors font-tech uppercase">E-mail</span>
+                </a>
+            </div>
+            
+            <p class="text-xs text-gray-600 font-tech uppercase tracking-widest">© 2026 Compusell Informática. Desenvolvido com <i class="fas fa-bolt text-neon-blue"></i> por Emerson.dev</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => {
+                d.classList.remove('bg-neon-blue', 'bg-neon-green');
+                d.classList.add('bg-white/30');
+            });
+
+            slides[index].classList.add('active');
+            // Cor do pontinho muda dependendo do slide
+            if (index === 1) { // Slide Gamer (Verde)
+                dots[index].classList.remove('bg-white/30');
+                dots[index].classList.add('bg-neon-green');
+            } else { // Outros slides (Azul)
+                 dots[index].classList.remove('bg-white/30');
+                dots[index].classList.add('bg-neon-blue');
+            }
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+
+        function manualSlide(index) {
+            showSlide(index);
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 6000); // Tempo do slide (6s)
+        }
+
+        let slideInterval = setInterval(nextSlide, 6000);
+    </script>
+</body>
+</html>
